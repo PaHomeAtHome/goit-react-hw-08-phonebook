@@ -2,7 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ErrorText } from 'components/ContactForm/ContactFormStyled';
 import { handleSignInSubmit } from 'components/functions/handleSubmit';
-import { authorisationApi } from 'redux/API/api';
+import { authorizationApi } from 'redux/API/api';
+import { useEffect } from 'react';
 
 const FormError = ({ name }) => {
   return (
@@ -25,8 +26,15 @@ const validationSchemaLogIn = Yup.object({
 });
 
 export const UserMenu = () => {
-  const [signUp, { isLoading }] = authorisationApi.useSignUpMutation();
-  const [logIn, { isLoading: Loading }] = authorisationApi.useLogInMutation();
+  const [signUp, { isLoading }] = authorizationApi.useSignUpMutation();
+  const [logIn, { isLoading: Loading, data }] =
+    authorizationApi.useLogInMutation();
+
+  const { data: info } = authorizationApi.useGetUserInfoQuery(data, {
+    skip: data === undefined,
+  });
+
+  console.log(info);
 
   return (
     <>
@@ -65,7 +73,6 @@ export const UserMenu = () => {
           )}
         </Form>
       </Formik>
-
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={validationSchemaLogIn}

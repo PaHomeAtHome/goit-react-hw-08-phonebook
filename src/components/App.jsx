@@ -9,8 +9,9 @@ export function App() {
     <Container>
       <h2>Phonebook</h2>
       <UserMenu />
-      <ContactForm />
+
       <h2>Contacts</h2>
+      <ContactForm />
       <Filter />
       <ContactList />
     </Container>

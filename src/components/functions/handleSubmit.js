@@ -27,7 +27,6 @@ export const handleSignInSubmit = async (value, resetForm, signIn) => {
   await signIn(value)
     .then(response => {
       resetForm();
-      console.log(response);
       return response;
     })
     .catch(error => {

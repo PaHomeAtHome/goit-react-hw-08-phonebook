@@ -30,12 +30,20 @@ export const contactsApi = createApi({
   }),
 });
 
-export const authorisationApi = createApi({
+export const authorizationApi = createApi({
   reducerPath: 'authorisationApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/',
   }),
+  tagTypes: ['Token'],
   endpoints: builder => ({
+    getUserInfo: builder.query({
+      query: data => ({
+        url: `users/current`,
+        headers: { Authorization: data.token },
+        providesTags: [`UserInfo`],
+      }),
+    }),
     signUp: builder.mutation({
       query: contact => ({
         url: `users/signup`,
@@ -49,6 +57,8 @@ export const authorisationApi = createApi({
         method: 'POST',
         body: contact,
       }),
+      providesTags: [`Token`],
+      invalidatesTags: [`UserInfo`],
     }),
   }),
 });
