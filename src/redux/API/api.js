@@ -30,6 +30,29 @@ export const contactsApi = createApi({
   }),
 });
 
+export const authorisationApi = createApi({
+  reducerPath: 'authorisationApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://connections-api.herokuapp.com/',
+  }),
+  endpoints: builder => ({
+    signUp: builder.mutation({
+      query: contact => ({
+        url: `users/signup`,
+        method: 'POST',
+        body: contact,
+      }),
+    }),
+    logIn: builder.mutation({
+      query: contact => ({
+        url: `users/login`,
+        method: 'POST',
+        body: contact,
+      }),
+    }),
+  }),
+});
+
 export const {
   useGetContactByNameQuery,
   reducerPath,
