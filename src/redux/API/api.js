@@ -32,6 +32,15 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: ['Contacts'],
     }),
+    updateContact: builder.mutation({
+      query: ({ newContact, token, id }) => ({
+        url: `contacts/${id}`,
+        method: 'PATCH',
+        headers: { Authorization: token },
+        body: newContact,
+      }),
+      invalidatesTags: ['Contacts'],
+    }),
   }),
 });
 
@@ -83,4 +92,5 @@ export const {
   middleware,
   useAddContactMutation,
   useDeleteContactMutation,
+  useUpdateContactMutation,
 } = contactsApi;

@@ -1,17 +1,48 @@
 import PropTypes from 'prop-types';
 
-import { Element, Button } from './ContactListComponentStyled';
-import { useDeleteContactMutation } from 'redux/API/api';
+import { Element, Button, Edit } from './ContactListComponentStyled';
+import {
+  useDeleteContactMutation,
+  useUpdateContactMutation,
+} from 'redux/API/api';
 
 export const ContactListComponent = ({ contact, token }) => {
-  const [deleteContact, { status }] = useDeleteContactMutation();
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
+  const [updateContact, { isLoading: updating }] = useUpdateContactMutation();
+  const { name, number, id } = contact;
+  const newContact = { name, number };
 
   return (
     <Element>
-      {(status === 'uninitialized' && (
+      {(!isLoading && !updating && (
         <>
           <p>
-            {contact.name}: {contact.number}
+            {name}
+            <Edit
+              type="button"
+              onClick={() => {
+                const name = prompt('Please type new name');
+                if (name) {
+                  newContact.name = name;
+                  updateContact({ newContact, token, id });
+                }
+              }}
+            >
+              ✏️
+            </Edit>
+            : {number}
+            <Edit
+              type="button"
+              onClick={() => {
+                const number = prompt('Please type new number');
+                if (number) {
+                  newContact.number = number;
+                  updateContact({ newContact, token, id });
+                }
+              }}
+            >
+              ✏️
+            </Edit>
           </p>
           <Button
             type="button"
@@ -20,7 +51,9 @@ export const ContactListComponent = ({ contact, token }) => {
             Delete
           </Button>
         </>
-      )) || <p>Deleting...</p>}
+      )) ||
+        (isLoading && <p>Deleting...</p>) ||
+        (updating && <p>Renaming...</p>)}
     </Element>
   );
 };

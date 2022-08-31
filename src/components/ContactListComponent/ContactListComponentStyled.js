@@ -13,3 +13,11 @@ export const Button = styled.button`
   border: 1px solid grey;
   border-radius: 5px;
 `;
+
+export const Edit = styled(Button)`
+  font-size: 10px;
+  margin-left: 0px;
+  padding: 0;
+  background: none;
+  border: none;
+`;
