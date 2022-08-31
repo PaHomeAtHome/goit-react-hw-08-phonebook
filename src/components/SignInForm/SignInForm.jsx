@@ -28,17 +28,18 @@ const validationSchemaLogIn = Yup.object({
 });
 
 export const SignInForm = () => {
-  const [signUp, { isLoading }] = authorizationApi.useSignUpMutation();
-  const [logIn, { isLoading: Loading, data }] =
+  const [signUp, { isLoading, data }] = authorizationApi.useSignUpMutation();
+  const [logIn, { isLoading: Loading, data: logInData }] =
     authorizationApi.useLogInMutation();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data) {
-      dispatch(changeToken(data));
+    const newData = data || logInData;
+    if (newData) {
+      dispatch(changeToken(newData));
     }
     return;
-  }, [dispatch, data]);
+  }, [dispatch, data, logInData]);
 
   return (
     <>
