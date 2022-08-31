@@ -22,19 +22,19 @@ const FormError = ({ name }) => {
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
-  phone: Yup.string().required(),
+  number: Yup.string().required(),
 });
 
-export const ContactForm = () => {
-  const { data } = useGetContactByNameQuery();
+export const ContactForm = ({ token }) => {
+  const { data } = useGetContactByNameQuery(token);
   const [addContact, { isLoading }] = useAddContactMutation();
 
   return (
     <Formik
-      initialValues={{ name: '', phone: '' }}
+      initialValues={{ name: '', number: '' }}
       validationSchema={validationSchema}
       onSubmit={(value, { resetForm }) =>
-        handleContactSubmit(value, resetForm, data, addContact)
+        handleContactSubmit(value, resetForm, data, addContact, token)
       }
       enableReinitialize
     >
@@ -53,16 +53,16 @@ export const ContactForm = () => {
           </div>
         </div>
         <div>
-          <label htmlFor="phone">Number</label>
+          <label htmlFor="number">Number</label>
           <div>
             <Field
-              name="phone"
+              name="number"
               type="tel"
               placeholder="Number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title={NUMBER_INPUT_TITLE}
             />
-            <FormError name="phone" />
+            <FormError name="number" />
           </div>
         </div>
         {(!isLoading && <button type="submit">Add contact</button>) || (

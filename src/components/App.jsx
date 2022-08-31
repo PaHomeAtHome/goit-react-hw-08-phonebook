@@ -12,12 +12,6 @@ export function App() {
   const [logOut] = authorizationApi.useLogOutMutation();
   const dispatch = useDispatch();
 
-  const { data } = authorizationApi.useGetUserInfoQuery(token, {
-    skip: token === null,
-  });
-
-  console.log(data);
-
   return (
     <Container>
       <h2>Phonebook</h2>
@@ -35,9 +29,9 @@ export function App() {
             Log out
           </button>
           <h2>Contacts</h2>
-          <ContactForm />
+          <ContactForm token={token} />
           <Filter />
-          <ContactList />
+          <ContactList token={token} />
         </>
       )}
     </Container>

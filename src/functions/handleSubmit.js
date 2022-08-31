@@ -2,7 +2,8 @@ export const handleContactSubmit = async (
   value,
   resetForm,
   data,
-  addContact
+  addContact,
+  token
 ) => {
   const { name } = value;
 
@@ -11,8 +12,7 @@ export const handleContactSubmit = async (
 
     return;
   }
-
-  await addContact(value)
+  await addContact({ value, token })
     .then(response => {
       resetForm();
       return response;

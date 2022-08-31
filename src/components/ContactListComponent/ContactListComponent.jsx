@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Element, Button } from './ContactListComponentStyled';
 import { useDeleteContactMutation } from 'redux/API/api';
 
-export const ContactListComponent = ({ contact }) => {
+export const ContactListComponent = ({ contact, token }) => {
   const [deleteContact, { status }] = useDeleteContactMutation();
 
   return (
@@ -11,9 +11,12 @@ export const ContactListComponent = ({ contact }) => {
       {(status === 'uninitialized' && (
         <>
           <p>
-            {contact.name}: {contact.phone}
+            {contact.name}: {contact.number}
           </p>
-          <Button type="button" onClick={() => deleteContact(contact)}>
+          <Button
+            type="button"
+            onClick={() => deleteContact({ contact, token })}
+          >
             Delete
           </Button>
         </>
@@ -25,7 +28,7 @@ export const ContactListComponent = ({ contact }) => {
 ContactListComponent.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string,
-    phone: PropTypes.string,
+    number: PropTypes.string,
     id: PropTypes.string,
   }),
 };

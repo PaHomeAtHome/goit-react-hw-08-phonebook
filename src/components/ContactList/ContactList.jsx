@@ -3,8 +3,8 @@ import { ContactListComponent } from 'components/ContactListComponent/ContactLis
 
 import { useGetContactByNameQuery } from 'redux/API/api';
 
-export const ContactList = () => {
-  const { data, error, isLoading } = useGetContactByNameQuery();
+export const ContactList = ({ token }) => {
+  const { data, error, isLoading } = useGetContactByNameQuery(token);
 
   const filter = useSelector(state => state.filter.filter);
   return (
@@ -17,7 +17,11 @@ export const ContactList = () => {
             contact.name.toLowerCase().includes(filter.toLowerCase())
           )
           .map(contact => (
-            <ContactListComponent key={contact.id} contact={contact} />
+            <ContactListComponent
+              key={contact.id}
+              contact={contact}
+              token={token}
+            />
           ))}
     </ul>
   );
