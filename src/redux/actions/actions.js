@@ -12,11 +12,11 @@ export const changeFilter = createAction(
 );
 
 export const changeToken = createAction(
-  'token/tpkenChanged',
-  function prepare(token) {
+  'token/tokenChanged',
+  function prepare(data) {
     return {
       payload: {
-        token,
+        data,
       },
     };
   }

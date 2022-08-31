@@ -15,9 +15,9 @@ export const filterReducer = createReducer(preloadedState.contacts, builder => {
   });
 });
 
-export const tokenReducer = createReducer({ token: null }, builder => {
+export const tokenReducer = createReducer({}, builder => {
   builder.addCase(changeToken, (state, action) => {
-    const { token } = action.payload;
-    state.token = token;
+    const { data } = action.payload;
+    return { ...data };
   });
 });
