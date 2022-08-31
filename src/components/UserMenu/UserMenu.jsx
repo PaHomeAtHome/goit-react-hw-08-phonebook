@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { ErrorText } from 'components/ContactForm/ContactFormStyled';
 import { handleSignInSubmit } from 'functions/handleSubmit';
 import { authorizationApi } from 'redux/API/api';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeToken } from 'redux/actions/actions';
 import { useEffect } from 'react';
 
@@ -40,8 +40,6 @@ export const UserMenu = () => {
     return;
   }, [dispatch, data]);
 
-  const token = useSelector(state => state.token.token);
-  console.log(token);
   return (
     <>
       <Formik
