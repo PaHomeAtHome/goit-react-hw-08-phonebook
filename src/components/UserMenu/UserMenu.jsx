@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 import { ErrorText } from 'components/ContactForm/ContactFormStyled';
 import { handleSignInSubmit } from 'components/functions/handleSubmit';
 import { authorizationApi } from 'redux/API/api';
-import { useEffect } from 'react';
 
 const FormError = ({ name }) => {
   return (
