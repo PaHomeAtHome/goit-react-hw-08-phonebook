@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { changeFilter } from 'redux/actions/actions';
+import { changeFilter, changeToken } from 'redux/actions/actions';
 
 const preloadedState = {
   contacts: {
@@ -12,5 +12,12 @@ export const filterReducer = createReducer(preloadedState.contacts, builder => {
   builder.addCase(changeFilter, (state, action) => {
     const { value } = action.payload;
     state.filter = value;
+  });
+});
+
+export const tokenReducer = createReducer({ token: null }, builder => {
+  builder.addCase(changeToken, (state, action) => {
+    const { token } = action.payload;
+    state.token = token;
   });
 });

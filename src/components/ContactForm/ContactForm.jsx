@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ErrorText } from './ContactFormStyled';
 import { useAddContactMutation, useGetContactByNameQuery } from 'redux/API/api';
-import { handleContactSubmit } from 'components/functions/handleSubmit';
+import { handleContactSubmit } from 'functions/handleSubmit';
 
 const NAME_INPUT_TITLE =
   "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan";

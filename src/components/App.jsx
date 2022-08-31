@@ -8,6 +8,7 @@ export function App() {
   return (
     <Container>
       <h2>Phonebook</h2>
+
       <UserMenu />
 
       <h2>Contacts</h2>

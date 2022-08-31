@@ -1,8 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ErrorText } from 'components/ContactForm/ContactFormStyled';
-import { handleSignInSubmit } from 'components/functions/handleSubmit';
+import { handleSignInSubmit } from 'functions/handleSubmit';
 import { authorizationApi } from 'redux/API/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeToken } from 'redux/actions/actions';
+import { useEffect } from 'react';
 
 const FormError = ({ name }) => {
   return (
@@ -28,13 +31,17 @@ export const UserMenu = () => {
   const [signUp, { isLoading }] = authorizationApi.useSignUpMutation();
   const [logIn, { isLoading: Loading, data }] =
     authorizationApi.useLogInMutation();
+  const dispatch = useDispatch();
 
-  const { data: info } = authorizationApi.useGetUserInfoQuery(data, {
-    skip: data === undefined,
-  });
+  useEffect(() => {
+    if (data) {
+      dispatch(changeToken(data.token));
+    }
+    return;
+  }, [dispatch, data]);
 
-  console.log(info);
-
+  const token = useSelector(state => state.token.token);
+  console.log(token);
   return (
     <>
       <Formik

@@ -38,9 +38,9 @@ export const authorizationApi = createApi({
   tagTypes: ['Token'],
   endpoints: builder => ({
     getUserInfo: builder.query({
-      query: data => ({
+      query: token => ({
         url: `users/current`,
-        headers: { Authorization: data.token },
+        headers: { Authorization: token },
         providesTags: [`UserInfo`],
       }),
     }),

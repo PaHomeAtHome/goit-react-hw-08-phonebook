@@ -10,3 +10,14 @@ export const changeFilter = createAction(
     };
   }
 );
+
+export const changeToken = createAction(
+  'token/tpkenChanged',
+  function prepare(token) {
+    return {
+      payload: {
+        token,
+      },
+    };
+  }
+);
