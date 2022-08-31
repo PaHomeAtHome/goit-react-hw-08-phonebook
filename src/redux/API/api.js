@@ -60,6 +60,14 @@ export const authorizationApi = createApi({
       providesTags: [`Token`],
       invalidatesTags: [`UserInfo`],
     }),
+    logOut: builder.mutation({
+      query: token => ({
+        url: `users/logout`,
+        method: 'POST',
+        headers: { Authorization: token },
+      }),
+      invalidatesTags: [`UserInfo`, `Token`],
+    }),
   }),
 });
 

@@ -3,11 +3,14 @@ import Container from './Container/Container';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { UserMenu } from './UserMenu/UserMenu';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { authorizationApi } from 'redux/API/api';
+import { changeToken } from 'redux/actions/actions';
 
 export function App() {
   const token = useSelector(state => state.token.token);
+  const [logOut] = authorizationApi.useLogOutMutation();
+  const dispatch = useDispatch();
 
   const { data } = authorizationApi.useGetUserInfoQuery(token, {
     skip: token === null,
@@ -20,11 +23,23 @@ export function App() {
       <h2>Phonebook</h2>
 
       <UserMenu />
-
-      <h2>Contacts</h2>
-      <ContactForm />
-      <Filter />
-      <ContactList />
+      {token && (
+        <>
+          <button
+            type="button"
+            onClick={() => {
+              logOut(token);
+              dispatch(changeToken(null));
+            }}
+          >
+            Log out
+          </button>
+          <h2>Contacts</h2>
+          <ContactForm />
+          <Filter />
+          <ContactList />
+        </>
+      )}
     </Container>
   );
 }
