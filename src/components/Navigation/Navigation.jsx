@@ -9,10 +9,7 @@ export const Navigation = ({ token, user }) => {
       <Header>
         <nav>
           {token ? (
-            <>
-              <Link to="/contacts">Contacts</Link>
-              <UserMenu token={token} user={user} />
-            </>
+            ''
           ) : (
             <>
               <Link to="/login">Log in</Link>
@@ -20,6 +17,7 @@ export const Navigation = ({ token, user }) => {
             </>
           )}
         </nav>
+        {token && <UserMenu token={token} user={user} />}
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

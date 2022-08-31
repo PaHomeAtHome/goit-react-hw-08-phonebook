@@ -30,7 +30,7 @@ export function App() {
             path="/contacts"
             element={
               token ? (
-                <Contacts token={token} user={user} />
+                <Contacts token={token} />
               ) : (
                 <Navigate to="/login" replace />
               )

@@ -30,45 +30,47 @@ export const ContactForm = ({ token }) => {
   const [addContact, { isLoading }] = useAddContactMutation();
 
   return (
-    <Formik
-      initialValues={{ name: '', number: '' }}
-      validationSchema={validationSchema}
-      onSubmit={(value, { resetForm }) =>
-        handleContactSubmit(value, resetForm, data, addContact, token)
-      }
-      enableReinitialize
-    >
-      <Form autoComplete="off">
-        <div>
-          <label htmlFor="name">Name</label>
+    <>
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        validationSchema={validationSchema}
+        onSubmit={(value, { resetForm }) =>
+          handleContactSubmit(value, resetForm, data, addContact, token)
+        }
+        enableReinitialize
+      >
+        <Form autoComplete="off">
           <div>
-            <Field
-              name="name"
-              type="text"
-              placeholder="Name"
-              pattern={NAME_INPUT_PATTERN}
-              title={NAME_INPUT_TITLE}
-            />
-            <FormError name="name" />
+            <label htmlFor="name">Name</label>
+            <div>
+              <Field
+                name="name"
+                type="text"
+                placeholder="Name"
+                pattern={NAME_INPUT_PATTERN}
+                title={NAME_INPUT_TITLE}
+              />
+              <FormError name="name" />
+            </div>
           </div>
-        </div>
-        <div>
-          <label htmlFor="number">Number</label>
           <div>
-            <Field
-              name="number"
-              type="tel"
-              placeholder="Number"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title={NUMBER_INPUT_TITLE}
-            />
-            <FormError name="number" />
+            <label htmlFor="number">Number</label>
+            <div>
+              <Field
+                name="number"
+                type="tel"
+                placeholder="Number"
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title={NUMBER_INPUT_TITLE}
+              />
+              <FormError name="number" />
+            </div>
           </div>
-        </div>
-        {(!isLoading && <button type="submit">Add contact</button>) || (
-          <p>Adding contact...</p>
-        )}
-      </Form>
-    </Formik>
+          {(!isLoading && <button type="submit">Add contact</button>) || (
+            <p>Adding contact...</p>
+          )}
+        </Form>
+      </Formik>
+    </>
   );
 };

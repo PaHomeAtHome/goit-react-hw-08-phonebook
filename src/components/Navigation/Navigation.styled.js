@@ -4,18 +4,13 @@ import { NavLink } from 'react-router-dom';
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   padding: 15px 30px;
-  background-color: black;
+  background-color: brown;
   > nav {
     display: flex;
     justify-content: space-between;
-    &:hover {
-      & > *:not(:hover) {
-        opacity: 0.2;
-      }
-    }
   }
 `;
 
