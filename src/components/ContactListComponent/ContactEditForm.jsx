@@ -43,7 +43,7 @@ export const ContactEditForm = ({
             value.name.toLowerCase() === name.toLowerCase() &&
             value.number.toLowerCase() === number.toLowerCase()
           ) {
-            alert('Number and name has no changes');
+            alert('Contact has no changes');
             return;
           }
           updateContact({ value, id, token });

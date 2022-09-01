@@ -11,10 +11,24 @@ export const Contacts = ({ token }) => {
   return (
     <ContactsEl>
       <ButtonsEl>
-        <ContactButton onClick={() => setIsSearching(current => !current)}>
+        <ContactButton
+          onClick={() => {
+            setIsSearching(current => !current);
+            if (isShown) {
+              setIsShown(current => !current);
+            }
+          }}
+        >
           🔍
         </ContactButton>
-        <ContactButton onClick={() => setIsShown(current => !current)}>
+        <ContactButton
+          onClick={() => {
+            setIsShown(current => !current);
+            if (isSearching) {
+              setIsSearching(current => !current);
+            }
+          }}
+        >
           ➕
         </ContactButton>
       </ButtonsEl>
