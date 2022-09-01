@@ -20,6 +20,7 @@ export const Output = styled.div`
   border-top: none;
   border-bottom-left-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
+  padding: 20px;
 `;
 
 export const Path = styled(LinkContainer)``;
@@ -27,7 +28,7 @@ export const Path = styled(LinkContainer)``;
 export const Item = styled(NavStyled.Item)`
   /* & .nav-link.active {
     background-color: rgb(13, 110, 253);
-    color: white;
+    color: rgb(13, 110, 253);
   } */
 `;
 

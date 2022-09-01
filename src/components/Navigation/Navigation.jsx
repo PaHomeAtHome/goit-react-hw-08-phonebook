@@ -32,9 +32,8 @@ export const Navigation = ({ token, user }) => {
         )}
       </Header>
       <Output>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Outlet />
-        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}></Suspense>
+        <Outlet />
       </Output>
     </>
   );

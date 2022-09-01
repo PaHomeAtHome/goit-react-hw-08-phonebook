@@ -6,6 +6,7 @@ import { Navigation } from './Navigation/Navigation';
 import { SignUpForm } from './SignUpForm/SignUpForm';
 import { LogInForm } from './LogInForm/LogInForm';
 import { Contacts } from 'pages/Contacts/Contacts';
+import { Home } from 'pages/Home/Home';
 const Container = lazy(() => import('./Container/Container'));
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
     <Container>
       <Routes>
         <Route path="/" element={<Navigation token={token} user={user} />}>
+          <Route index element={<Home />} />
           <Route
             path="/register"
             element={

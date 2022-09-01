@@ -6,6 +6,7 @@ import { authorizationApi } from 'redux/API/api';
 import { useDispatch } from 'react-redux';
 import { changeToken } from 'redux/actions/actions';
 import { useEffect } from 'react';
+import { ButtonStyled, FormStyled } from './LogInForm.styled';
 
 const FormError = ({ name }) => {
   return (
@@ -41,25 +42,35 @@ export const LogInForm = () => {
       }
       enableReinitialize
     >
-      <Form autoComplete="off">
-        <div>
+      <FormStyled as={Form} autoComplete="off">
+        <FormStyled.Group>
           <label htmlFor="email">E-mail</label>
           <div>
-            <Field name="email" type="email" placeholder="E-mail" />
+            <FormStyled.Control
+              as={Field}
+              name="email"
+              type="email"
+              placeholder="E-mail"
+            />
             <FormError name="email" />
           </div>
-        </div>
-        <div>
+        </FormStyled.Group>
+        <FormStyled.Group>
           <label htmlFor="password">Password</label>
           <div>
-            <Field name="password" type="password" placeholder="Password" />
+            <FormStyled.Control
+              as={Field}
+              name="password"
+              type="password"
+              placeholder="Password"
+            />
             <FormError name="password" />
           </div>
-        </div>
-        {(!Loading && <button type="submit">Log in</button>) || (
+        </FormStyled.Group>
+        {(!Loading && <ButtonStyled type="submit">Log in</ButtonStyled>) || (
           <p>Logging in...</p>
         )}
-      </Form>
+      </FormStyled>
     </Formik>
   );
 };
