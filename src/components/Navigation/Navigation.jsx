@@ -1,5 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { Header, NavStyled, Path, Item, Link } from './Navigation.styled';
+import {
+  Header,
+  NavStyled,
+  Path,
+  Item,
+  Link,
+  Output,
+} from './Navigation.styled';
 import { Suspense } from 'react';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 
@@ -24,9 +31,11 @@ export const Navigation = ({ token, user }) => {
           </NavStyled>
         )}
       </Header>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Output>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
+      </Output>
     </>
   );
 };

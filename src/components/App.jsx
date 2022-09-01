@@ -1,10 +1,12 @@
-import Container from './Container/Container';
-import { SignUpForm } from './SignUpForm/SignUpForm';
-import { LogInForm } from './LogInForm/LogInForm';
 import { useSelector } from 'react-redux';
+import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
+
+import { SignUpForm } from './SignUpForm/SignUpForm';
+import { LogInForm } from './LogInForm/LogInForm';
 import { Contacts } from 'pages/Contacts/Contacts';
+const Container = lazy(() => import('./Container/Container'));
 
 export function App() {
   const token = useSelector(state => state.token.token);
@@ -36,6 +38,7 @@ export function App() {
               )
             }
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </Container>
