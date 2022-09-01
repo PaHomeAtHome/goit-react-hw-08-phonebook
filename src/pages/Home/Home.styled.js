@@ -3,10 +3,16 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export const Slider = styled(Carousel)`
   .carousel-caption p {
-    margin-bottom: 0;
     background-color: #00000099;
+    margin-bottom: 0;
+    padding: 5px;
   }
   .carousel-indicators button {
-    border: 1px solid #00000099;
+    border: 1px solid #00000011;
+  }
+
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    background-color: #00000033;
   }
 `;

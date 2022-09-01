@@ -34,7 +34,7 @@ export const Home = () => {
         />
 
         <Slider.Caption>
-          <p>Manage Your contacts like on Your smartphone</p>
+          <p>Manage contacts like on Your smartphone</p>
         </Slider.Caption>
       </Slider.Item>
     </Slider>
