@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Link } from './Navigation.styled';
+import { Header, NavStyled, Path, Item, Link } from './Navigation.styled';
 import { Suspense } from 'react';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 
@@ -7,17 +7,22 @@ export const Navigation = ({ token, user }) => {
   return (
     <>
       <Header>
-        <nav>
-          {token ? (
-            ''
-          ) : (
-            <>
-              <Link to="/login">Log in</Link>
-              <Link to="/register">Sign up</Link>
-            </>
-          )}
-        </nav>
-        {token && <UserMenu token={token} user={user} />}
+        {token ? (
+          <UserMenu token={token} user={user} />
+        ) : (
+          <NavStyled fill variant="tabs" bg="light">
+            <Item>
+              <Path to="/login">
+                <Link>Log in</Link>
+              </Path>
+            </Item>
+            <Item>
+              <Path to="/register">
+                <Link>Sign up</Link>
+              </Path>
+            </Item>
+          </NavStyled>
+        )}
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

@@ -1,47 +1,25 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { LinkContainer } from 'react-router-bootstrap';
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px 30px;
-  background-color: brown;
-  > nav {
-    display: flex;
-    justify-content: space-between;
-  }
+export const Header = styled(Navbar)`
+  display: block;
 `;
 
-export const Link = styled(NavLink)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 16px;
-  border-radius: 4px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition-duration: 200ms;
-  font-size: 21px;
-  margin: 5px;
-  box-shadow: 0px 0px 2px yellow;
-  &.active {
-    background-color: yellow;
-    color: black;
-  }
-  &.active,
-  &:hover {
-    cursor: pointer;
-  }
-  &:hover:not(.active) {
-    color: white;
-    background-color: red;
-    box-shadow: 0px 0px 2px red;
-  }
-`;
+export const NavStyled = styled(Nav)``;
 
 export const ErrorBox = styled.div`
   background-color: black;
 `;
+
+export const Path = styled(LinkContainer)``;
+
+export const Item = styled(NavStyled.Item)`
+  & .nav-link.active {
+    background-color: rgb(13, 110, 253);
+    color: white;
+  }
+`;
+
+export const Link = styled(NavStyled.Link)``;
