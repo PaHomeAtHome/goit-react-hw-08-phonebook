@@ -6,6 +6,7 @@ import { authorizationApi } from 'redux/API/api';
 import { useDispatch } from 'react-redux';
 import { changeToken } from 'redux/actions/actions';
 import { useEffect } from 'react';
+import { ButtonStyled, FormStyled } from '../LogInForm/LogInForm.styled';
 
 const FormError = ({ name }) => {
   return (
@@ -42,32 +43,44 @@ export const SignUpForm = () => {
       }
       enableReinitialize
     >
-      <Form autoComplete="off">
-        <div>
-          <label htmlFor="name">Name</label>
-          <div>
-            <Field name="name" type="text" placeholder="Name" />
-            <FormError name="name" />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <div>
-            <Field name="email" type="email" placeholder="E-mail" />
-            <FormError name="email" />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <div>
-            <Field name="password" type="password" placeholder="Password" />
-            <FormError name="password" />
-          </div>
-        </div>
-        {(!isLoading && <button type="submit">Sign in</button>) || (
+      <FormStyled as={Form} autoComplete="off">
+        <FormStyled.Group className="mb-3">
+          <FormStyled.Label htmlFor="name">Name</FormStyled.Label>
+
+          <FormStyled.Control
+            as={Field}
+            name="name"
+            type="text"
+            placeholder="Name"
+          />
+          <FormStyled.Text as={FormError} name="name" />
+        </FormStyled.Group>
+        <FormStyled.Group className="mb-3">
+          <FormStyled.Label htmlFor="email">E-mail</FormStyled.Label>
+
+          <FormStyled.Control
+            as={Field}
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
+          <FormStyled.Text as={FormError} name="email" />
+        </FormStyled.Group>
+        <FormStyled.Group className="mb-4">
+          <FormStyled.Label htmlFor="password">Password</FormStyled.Label>
+
+          <FormStyled.Control
+            as={Field}
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <FormStyled.Text as={FormError} name="password" />
+        </FormStyled.Group>
+        {(!isLoading && <ButtonStyled type="submit">Sign in</ButtonStyled>) || (
           <p>Signing in...</p>
         )}
-      </Form>
+      </FormStyled>
     </Formik>
   );
 };

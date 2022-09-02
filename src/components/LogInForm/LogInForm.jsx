@@ -43,29 +43,27 @@ export const LogInForm = () => {
       enableReinitialize
     >
       <FormStyled as={Form} autoComplete="off">
-        <FormStyled.Group>
-          <label htmlFor="email">E-mail</label>
-          <div>
-            <FormStyled.Control
-              as={Field}
-              name="email"
-              type="email"
-              placeholder="E-mail"
-            />
-            <FormError name="email" />
-          </div>
+        <FormStyled.Group className="mb-3">
+          <FormStyled.Label htmlFor="email">E-mail</FormStyled.Label>
+
+          <FormStyled.Control
+            as={Field}
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
+          <FormStyled.Text as={FormError} name="email" />
         </FormStyled.Group>
-        <FormStyled.Group>
-          <label htmlFor="password">Password</label>
-          <div>
-            <FormStyled.Control
-              as={Field}
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <FormError name="password" />
-          </div>
+        <FormStyled.Group className="mb-4">
+          <FormStyled.Label htmlFor="password">Password</FormStyled.Label>
+
+          <FormStyled.Control
+            as={Field}
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <FormStyled.Text as={FormError} name="password" />
         </FormStyled.Group>
         {(!Loading && <ButtonStyled type="submit">Log in</ButtonStyled>) || (
           <p>Logging in...</p>

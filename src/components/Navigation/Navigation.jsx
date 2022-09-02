@@ -19,7 +19,7 @@ export const Navigation = ({ token, user }) => {
         {token ? (
           <UserMenu token={token} user={user} />
         ) : (
-          <NavStyled fill variant="tabs" bg="light">
+          <NavStyled fill justify variant="tabs" bg="light">
             <Item>
               <Path to="/">
                 <Link>
@@ -31,12 +31,16 @@ export const Navigation = ({ token, user }) => {
             </Item>
             <Item>
               <Path to="/login">
-                <Link>Log in</Link>
+                <Link>
+                  <h6>Log in</h6>
+                </Link>
               </Path>
             </Item>
             <Item>
               <Path to="/register">
-                <Link>Sign up</Link>
+                <Link>
+                  <h6>Sign up</h6>
+                </Link>
               </Path>
             </Item>
           </NavStyled>
