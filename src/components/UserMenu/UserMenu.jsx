@@ -36,7 +36,7 @@ export const UserMenu = ({ token, user }) => {
           {name} &nbsp;
         </Toggle>
 
-        <Options>
+        <Options align={{ md: 'start' }}>
           <Menu.Item as={'div'}>
             <Profile variant="secondary">
               <svg
