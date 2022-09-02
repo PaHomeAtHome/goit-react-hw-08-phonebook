@@ -13,15 +13,12 @@ export const Element = styled.li`
 export const ButtonStyled = styled(Button)`
   height: 38px;
   position: static;
-
-  .btn-group > .btn {
-    position: static;
-  }
 `;
 
 export const Edit = styled(ButtonStyled)`
   border-left: 1px solid #dee2e6;
   position: static;
+
   &:hover {
     background-color: #0d6efd;
     color: white;
@@ -35,6 +32,7 @@ export const Number = styled(ButtonStyled)`
   align-items: center;
   border-left: 1px solid #dee2e6;
   line-height: 1;
+  position: static;
 
   &:hover {
     background-color: #0d6efd;
@@ -49,8 +47,17 @@ export const Contact = styled(ButtonGroup)`
   align-items: center;
   position: static;
 
-  .btn-group > .btn {
+  > .btn {
     position: static;
+  }
+
+  > .btn-check:checked + .btn,
+  > .btn-check:focus + .btn,
+  > .btn:hover,
+  > .btn:focus,
+  > .btn:active,
+  > .btn.active {
+    z-index: 0;
   }
 
   background-color: #198754;
