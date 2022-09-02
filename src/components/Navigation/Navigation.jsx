@@ -6,6 +6,8 @@ import {
   Item,
   Link,
   Output,
+  BadgeStyled,
+  Title,
 } from './Navigation.styled';
 import { Suspense } from 'react';
 import { UserMenu } from 'components/UserMenu/UserMenu';
@@ -18,6 +20,15 @@ export const Navigation = ({ token, user }) => {
           <UserMenu token={token} user={user} />
         ) : (
           <NavStyled fill variant="tabs" bg="light">
+            <Item>
+              <Path to="/">
+                <Link>
+                  <Title>
+                    <BadgeStyled>Phonebook</BadgeStyled>
+                  </Title>
+                </Link>
+              </Path>
+            </Item>
             <Item>
               <Path to="/login">
                 <Link>Log in</Link>

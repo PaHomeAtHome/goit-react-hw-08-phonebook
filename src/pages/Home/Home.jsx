@@ -22,7 +22,7 @@ export const Home = () => {
         />
 
         <Slider.Caption>
-          <p>Add and use Your contacts everywhere</p>
+          <p>Add and use contacts everywhere</p>
         </Slider.Caption>
       </Slider.Item>
 
@@ -34,7 +34,7 @@ export const Home = () => {
         />
 
         <Slider.Caption>
-          <p>Manage contacts like on Your smartphone</p>
+          <p>Manage contacts like on smartphone</p>
         </Slider.Caption>
       </Slider.Item>
     </Slider>
