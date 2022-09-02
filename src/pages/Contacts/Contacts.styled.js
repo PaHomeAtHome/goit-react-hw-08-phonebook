@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
 export const ContactsEl = styled.div`
-  padding: 5px 10px;
   color: inherit;
   font-size: 18px;
 `;

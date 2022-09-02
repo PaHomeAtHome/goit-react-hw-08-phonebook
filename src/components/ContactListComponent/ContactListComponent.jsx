@@ -25,7 +25,7 @@ export const ContactListComponent = ({ contact, token }) => {
       {(!isLoading && !updating && (
         <>
           <Element>
-            <Contact>
+            <Contact size="sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
