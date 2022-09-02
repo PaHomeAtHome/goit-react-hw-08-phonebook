@@ -5,8 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export const User = styled.div``;
 
 export const LogOutButton = styled(Button)`
-  margin-left: 15px;
-  min-width: 100px;
+  width: 100%;
 `;
 
 export const Profile = styled(Button)`
@@ -25,6 +24,13 @@ export const Toggle = styled(Menu.Toggle)`
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: none;
+
+  &[aria-expanded='true'] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+  }
 `;
 
 export const Options = styled(Menu.Menu)`

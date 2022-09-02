@@ -33,12 +33,12 @@ export const UserMenu = ({ token, user }) => {
             />
           </svg>
           &nbsp;
-          {name} &nbsp;
+          <h6 style={{ margin: 0 }}>{name}</h6> &nbsp;
         </Toggle>
 
         <Options align={{ md: 'start' }}>
           <Menu.Item as={'div'}>
-            <Profile variant="secondary">
+            <Profile>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

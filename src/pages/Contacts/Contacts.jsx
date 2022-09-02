@@ -21,8 +21,8 @@ export const Contacts = ({ token }) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
+            width="20"
+            height="20"
             fill="currentColor"
             className="bi bi-search"
             viewBox="0 0 16 16"
@@ -40,8 +40,8 @@ export const Contacts = ({ token }) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
+            width="20"
+            height="20"
             fill="currentColor"
             className="bi bi-person-plus-fill"
             viewBox="0 0 16 16"
