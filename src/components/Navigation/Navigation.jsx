@@ -17,7 +17,24 @@ export const Navigation = ({ token, user }) => {
     <>
       <Header>
         {token ? (
-          <UserMenu token={token} user={user} />
+          <NavStyled fill justify variant="tabs" bg="light">
+            <Item>
+              <Path to="/">
+                <Link>
+                  <Title>
+                    <BadgeStyled>Phonebook</BadgeStyled>
+                  </Title>
+                </Link>
+              </Path>
+            </Item>
+            <Item>
+              <Path to="/contacts">
+                <Link>
+                  <UserMenu token={token} user={user} />
+                </Link>
+              </Path>
+            </Item>
+          </NavStyled>
         ) : (
           <NavStyled fill justify variant="tabs" bg="light">
             <Item>
