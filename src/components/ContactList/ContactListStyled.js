@@ -4,5 +4,5 @@ export const ContactListStyled = styled.ul`
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 10px;
+  gap: 30px;
 `;
