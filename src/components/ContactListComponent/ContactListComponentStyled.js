@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+
 export const Element = styled.li`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 `;
 

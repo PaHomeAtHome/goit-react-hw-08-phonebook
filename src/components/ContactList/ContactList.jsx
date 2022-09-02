@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { ContactListComponent } from 'components/ContactListComponent/ContactListComponent';
-
+import { ContactListStyled } from './ContactListStyled';
 import { useGetContactByNameQuery } from 'redux/API/api';
 
 export const ContactList = ({ token }) => {
@@ -8,13 +8,16 @@ export const ContactList = ({ token }) => {
 
   const filter = useSelector(state => state.filter.filter);
   return (
-    <ul>
+    <ContactListStyled>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {data &&
-        data
+        [...data]
           .filter(contact =>
             contact.name.toLowerCase().includes(filter.toLowerCase())
+          )
+          .sort((a, b) =>
+            a.name.localeCompare(b.name, { ignorePunctuation: true })
           )
           .map(contact => (
             <ContactListComponent
@@ -23,6 +26,6 @@ export const ContactList = ({ token }) => {
               token={token}
             />
           ))}
-    </ul>
+    </ContactListStyled>
   );
 };

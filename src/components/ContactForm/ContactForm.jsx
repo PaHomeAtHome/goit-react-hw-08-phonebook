@@ -43,7 +43,7 @@ export const ContactForm = ({ token }) => {
         }
         enableReinitialize
       >
-        <FormStyled as={Form} autoComplete="off">
+        <FormStyled as={Form} autoComplete="off" className="mb-4">
           <FormStyled.Group>
             <FormStyled.Control
               as={Field}
