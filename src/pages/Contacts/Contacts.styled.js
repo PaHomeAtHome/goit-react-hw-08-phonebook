@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-export const ContactsEl = styled.div`
-  color: inherit;
-  font-size: 18px;
-`;
+export const ContactsEl = styled.div``;
 
 export const ButtonsEl = styled(ContactsEl)`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export const ContactButton = styled(Button)`
@@ -17,7 +15,6 @@ export const ContactButton = styled(Button)`
   justify-content: center;
   align-items: center;
   width: 80px;
-  margin-bottom: 15px;
 
   &:not(:first-child) {
     margin-left: 30px;

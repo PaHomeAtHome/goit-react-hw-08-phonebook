@@ -14,8 +14,8 @@ export const ButtonStyled = styled(Button)`
   height: 38px;
   position: static;
 
-  svg {
-    line-height: 1;
+  .btn-group > .btn {
+    position: static;
   }
 `;
 
@@ -54,6 +54,7 @@ export const Contact = styled(ButtonGroup)`
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   padding-left: 10px;
+  transition-duration: 250ms;
 
   &:hover {
     background-color: #198754;
