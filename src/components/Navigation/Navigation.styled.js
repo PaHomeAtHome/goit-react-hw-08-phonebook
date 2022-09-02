@@ -43,7 +43,7 @@ export const Link = styled(NavStyled.Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75px;
+  height: 70px;
 `;
 
 export const BadgeStyled = styled(Badge)`
@@ -53,6 +53,6 @@ export const BadgeStyled = styled(Badge)`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   margin: 0;
 `;
