@@ -34,6 +34,8 @@ export const Number = styled(ButtonStyled)`
   justify-content: center;
   align-items: center;
   border-left: 1px solid #dee2e6;
+  line-height: 1;
+
   &:hover {
     background-color: #0d6efd;
     color: white;
@@ -51,13 +53,8 @@ export const Contact = styled(ButtonGroup)`
     position: static;
   }
 
-  background-color: #f8f9fa;
+  background-color: #198754;
+  color: white;
   border: 1px solid #dee2e6;
   padding-left: 10px;
-  transition-duration: 250ms;
-
-  &:hover {
-    background-color: #198754;
-    color: white;
-  }
 `;
