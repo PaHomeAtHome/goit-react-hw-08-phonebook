@@ -5,20 +5,23 @@ import styled from 'styled-components';
 
 export const Element = styled.li`
   display: flex;
-  justify-content: left;
+  justify-content: stretch;
   align-items: center;
   padding: 0;
 `;
 
 export const ButtonStyled = styled(Button)`
-  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 29px;
+  padding: 0;
   position: static;
+  max-width: 40px;
 `;
 
 export const Edit = styled(ButtonStyled)`
   border-left: 1px solid #dee2e6;
-  position: static;
-
   &:hover {
     background-color: #0d6efd;
     color: white;
@@ -27,23 +30,21 @@ export const Edit = styled(ButtonStyled)`
 `;
 
 export const Number = styled(ButtonStyled)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-left: 1px solid #dee2e6;
-  line-height: 1;
-  position: static;
+  max-width: 100%;
 
   &:hover {
     background-color: #0d6efd;
     color: white;
     border-color: #0d6efd;
+    border-left-color: white;
   }
 `;
 
 export const Contact = styled(ButtonGroup)`
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: stretch;
   align-items: center;
   position: static;
 
@@ -58,6 +59,11 @@ export const Contact = styled(ButtonGroup)`
   > .btn:active,
   > .btn.active {
     z-index: 0;
+  }
+
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-left: 0;
   }
 
   background-color: #198754;
