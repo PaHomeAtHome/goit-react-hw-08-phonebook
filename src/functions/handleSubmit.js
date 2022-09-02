@@ -7,7 +7,11 @@ export const handleContactSubmit = async (
 ) => {
   const { name } = value;
 
-  if (data.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+  if (
+    data.find(
+      contact => contact.name.toLowerCase().trim() === name.toLowerCase().trim()
+    )
+  ) {
     alert(name + ' is already in contacts');
 
     return;
