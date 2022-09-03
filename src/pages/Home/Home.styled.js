@@ -15,4 +15,7 @@ export const Slider = styled(Carousel)`
   .carousel-control-prev-icon {
     background-color: #00000033;
   }
+  max-width: 900px;
+  max-height: 700px;
+  margin: auto;
 `;

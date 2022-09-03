@@ -37,8 +37,7 @@ export const Edit = styled(ButtonStyled)`
 `;
 
 export const Number = styled(ButtonStyled)`
-  max-width: 150px;
-  min-width: 150px;
+  max-width: 130px;
 
   &:hover {
     background-color: #ffc107;
@@ -58,10 +57,6 @@ export const Contact = styled(ButtonGroup)`
   line-height: 1;
   word-wrap: break-word;
   overflow-wrap: anywhere;
-
-  svg {
-    min-width: 16px;
-  }
 
   > .btn {
     position: static;
@@ -83,7 +78,7 @@ export const Contact = styled(ButtonGroup)`
 
   span {
     display: flex;
-    width: 100%;
+    width: 150px;
     height: 100%;
     justify-content: stretch;
     align-items: center;
@@ -97,6 +92,7 @@ export const Contact = styled(ButtonGroup)`
 
     svg {
       margin-right: 5px;
+      min-width: 16px;
     }
   }
 `;
