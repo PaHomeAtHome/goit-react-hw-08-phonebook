@@ -15,6 +15,7 @@ import {
   useUpdateContactMutation,
 } from 'redux/API/api';
 import Modal from 'react-bootstrap/Modal';
+import { Spinner } from 'react-bootstrap';
 
 export const ContactListComponent = ({ contact, token }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -125,8 +126,8 @@ export const ContactListComponent = ({ contact, token }) => {
           )}
         </>
       )) ||
-        (isLoading && <p>Deleting...</p>) ||
-        (updating && <p>Renaming...</p>)}
+        (isLoading && <Spinner animation="border" variant="danger" />) ||
+        (updating && <Spinner animation="border" variant="secondary" />)}
     </>
   );
 };

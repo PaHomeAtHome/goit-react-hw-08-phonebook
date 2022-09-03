@@ -1,3 +1,9 @@
+import alertify from 'alertifyjs';
+alertify.defaults.transition = 'slide';
+alertify.defaults.theme.ok = 'btn btn-primary';
+alertify.defaults.theme.cancel = 'btn btn-danger';
+alertify.defaults.theme.input = 'form-control';
+
 export const handleContactSubmit = async (
   value,
   resetForm,
@@ -12,7 +18,7 @@ export const handleContactSubmit = async (
       contact => contact.name.toLowerCase().trim() === name.toLowerCase().trim()
     )
   ) {
-    alert(name + ' is already in contacts');
+    alertify.alert('\u00a0', name.trim().bold() + ' is already in contacts');
 
     return;
   }
@@ -30,7 +36,7 @@ export const handleContactSubmit = async (
 export const handleSignInSubmit = async (value, resetForm, signIn) => {
   await signIn(value)
     .then(response => {
-      resetForm();
+      // resetForm();
       return response;
     })
     .catch(error => {

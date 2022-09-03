@@ -11,6 +11,7 @@ import {
 } from './Navigation.styled';
 import { Suspense } from 'react';
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Spinner } from 'react-bootstrap';
 
 export const Navigation = ({ token, user }) => {
   return (
@@ -63,8 +64,11 @@ export const Navigation = ({ token, user }) => {
           </NavStyled>
         )}
       </Header>
+
       <Output>
-        <Suspense fallback={<div>Loading...</div>}></Suspense>
+        <Suspense
+          fallback={<Spinner animation="border" variant="primary" />}
+        ></Suspense>
         <Outlet />
       </Output>
     </>

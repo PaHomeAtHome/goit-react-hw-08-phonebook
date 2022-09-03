@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
+import alertify from 'alertifyjs';
 
 import { SignUpForm } from './SignUpForm/SignUpForm';
 import { LogInForm } from './LogInForm/LogInForm';

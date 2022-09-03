@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import { changeToken } from 'redux/actions/actions';
 import { useEffect } from 'react';
 import { ButtonStyled, FormStyled } from './LogInForm.styled';
+import { Spinner } from 'react-bootstrap';
+import alertify from 'alertifyjs';
 
 const FormError = ({ name }) => {
   return (
@@ -23,15 +25,22 @@ const validationSchemaLogIn = Yup.object({
 });
 
 export const LogInForm = () => {
-  const [logIn, { Loading, data }] = authorizationApi.useLogInMutation();
+  const [logIn, { Loading, data, isError }] =
+    authorizationApi.useLogInMutation();
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (data) {
       dispatch(changeToken(data));
     }
+
+    if (isError) {
+      if (isError) {
+        alertify.alert('\u00a0', 'Wrong password or email');
+      }
+    }
     return;
-  }, [dispatch, data]);
+  }, [dispatch, data, isError]);
 
   return (
     <Formik
@@ -66,7 +75,7 @@ export const LogInForm = () => {
           <FormStyled.Text as={FormError} name="password" />
         </FormStyled.Group>
         {(!Loading && <ButtonStyled type="submit">Log in</ButtonStyled>) || (
-          <p>Logging in...</p>
+          <Spinner animation="border" variant="primary" />
         )}
       </FormStyled>
     </Formik>

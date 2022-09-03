@@ -7,6 +7,7 @@ import {
   FormStyled,
   ButtonStyled,
 } from 'components/LogInForm/LogInForm.styled';
+import { Spinner } from 'react-bootstrap';
 
 const NAME_INPUT_TITLE =
   "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan";
@@ -70,7 +71,7 @@ export const ContactForm = ({ token }) => {
           </FormStyled.Group>
           {(!isLoading && (
             <ButtonStyled type="submit">Add contact</ButtonStyled>
-          )) || <p>Adding contact...</p>}
+          )) || <Spinner animation="border" variant="primary" />}
         </FormStyled>
       </Formik>
     </>

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { ContactListComponent } from 'components/ContactListComponent/ContactListComponent';
 import { ContactListStyled } from './ContactListStyled';
 import { useGetContactByNameQuery } from 'redux/API/api';
+import { Spinner } from 'react-bootstrap';
 
 export const ContactList = ({ token }) => {
   const { data, error, isLoading } = useGetContactByNameQuery(token);
@@ -9,7 +10,7 @@ export const ContactList = ({ token }) => {
   const filter = useSelector(state => state.filter.filter);
   return (
     <ContactListStyled>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Spinner animation="border" variant="primary" />}
       {error && <p>{error}</p>}
       {data &&
         [...data]
