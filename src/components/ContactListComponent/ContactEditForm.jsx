@@ -6,6 +6,7 @@ import {
   ButtonStyled,
 } from 'components/LogInForm/LogInForm.styled';
 import { Spinner } from 'react-bootstrap';
+import alertify from 'alertifyjs';
 
 const NAME_INPUT_TITLE =
   "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan";
@@ -48,7 +49,10 @@ export const ContactEditForm = ({
             value.name.toLowerCase().trim() === name.toLowerCase().trim() &&
             value.number.toLowerCase().trim() === number.toLowerCase().trim()
           ) {
-            alert('Contact has no changes');
+            alertify.alert(
+              '\u00a0',
+              'Contact ' + name.bold() + ' has no changes'
+            );
             return;
           }
           updateContact({ value, id, token });
