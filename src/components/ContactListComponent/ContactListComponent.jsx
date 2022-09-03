@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ContactEditForm } from './ContactEditForm';
-import CloseButton from 'react-bootstrap/CloseButton';
+
 import {
   Element,
   ButtonStyled,
   Edit,
   Number,
   Contact,
+  CloseBtn,
 } from './ContactListComponentStyled';
 import {
   useDeleteContactMutation,
@@ -110,7 +111,7 @@ export const ContactListComponent = ({ contact, token }) => {
           {isEdited && (
             <Modal show={isEdited}>
               <Modal.Body>
-                <CloseButton onClick={() => setIsEdited(current => !current)} />
+                <CloseBtn onClick={() => setIsEdited(current => !current)} />
                 <ContactEditForm
                   contact={contact}
                   updateContact={updateContact}

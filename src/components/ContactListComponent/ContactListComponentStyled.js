@@ -1,7 +1,13 @@
 import { Button } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 import styled from 'styled-components';
+
+export const CloseBtn = styled(CloseButton)`
+  display: block;
+  margin-left: auto;
+`;
 
 export const Element = styled.li`
   display: flex;
