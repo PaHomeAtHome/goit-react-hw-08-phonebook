@@ -3,7 +3,7 @@ export const ContactListStyled = styled.ul`
   padding: 20px 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 5px;
 
   @media screen and (max-width: 360px) {

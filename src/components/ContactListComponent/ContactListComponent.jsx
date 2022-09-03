@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ContactEditForm } from './ContactEditForm';
-
+import CloseButton from 'react-bootstrap/CloseButton';
 import {
   Element,
   ButtonStyled,
@@ -13,6 +13,7 @@ import {
   useDeleteContactMutation,
   useUpdateContactMutation,
 } from 'redux/API/api';
+import Modal from 'react-bootstrap/Modal';
 
 export const ContactListComponent = ({ contact, token }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -26,18 +27,20 @@ export const ContactListComponent = ({ contact, token }) => {
         <>
           <Element>
             <Contact size="sm">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-person-fill"
-                viewBox="0 0 16 16"
-              >
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-              </svg>
-              {' \u00a0'}
-              <span>{name}</span> {'\u00a0'}
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-person-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg>
+
+                {name}
+              </span>
               <Number href={`tel:${number}`} variant="light">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -105,14 +108,19 @@ export const ContactListComponent = ({ contact, token }) => {
           </Element>
 
           {isEdited && (
-            <ContactEditForm
-              contact={contact}
-              updateContact={updateContact}
-              isLoading={updating}
-              token={token}
-              isEdited={isEdited}
-              setIsEdited={setIsEdited}
-            />
+            <Modal show={isEdited}>
+              <Modal.Body>
+                <CloseButton onClick={() => setIsEdited(current => !current)} />
+                <ContactEditForm
+                  contact={contact}
+                  updateContact={updateContact}
+                  isLoading={updating}
+                  token={token}
+                  isEdited={isEdited}
+                  setIsEdited={setIsEdited}
+                />
+              </Modal.Body>
+            </Modal>
           )}
         </>
       )) ||

@@ -21,6 +21,7 @@ export const ButtonStyled = styled(Button)`
 
   padding: 0;
   position: static;
+  min-width: 40px;
   max-width: 40px;
 `;
 
@@ -31,18 +32,19 @@ export const Edit = styled(ButtonStyled)`
     background-color: #ffc107;
     color: white;
     border-color: #ffc107;
+    /* border-right: 1px solid white; */
   }
 `;
 
 export const Number = styled(ButtonStyled)`
-  border-left: 1px solid #dee2e6;
-  max-width: 100%;
+  max-width: 150px;
+  min-width: 150px;
 
   &:hover {
     background-color: #ffc107;
     color: white;
     border-color: #ffc107;
-    border-left-color: white;
+    border-left: 1px solid white;
   }
 `;
 
@@ -54,9 +56,11 @@ export const Contact = styled(ButtonGroup)`
   align-items: center;
   position: static;
   line-height: 1;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 
-  span {
-    display: flex;
+  svg {
+    min-width: 16px;
   }
 
   > .btn {
@@ -77,8 +81,22 @@ export const Contact = styled(ButtonGroup)`
     margin-left: 0;
   }
 
-  background-color: #198754;
-  color: white;
-  /* border: 1px solid #dee2e6; */
-  padding-left: 10px;
+  span {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: stretch;
+    align-items: center;
+    background-color: #198754;
+    color: white;
+    border-radius: inherit;
+    /* border: 1px solid #dee2e6; */
+    padding: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
 `;

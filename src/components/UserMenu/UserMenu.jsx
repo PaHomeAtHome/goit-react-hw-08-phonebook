@@ -1,8 +1,8 @@
 import { authorizationApi } from 'redux/API/api';
 import { changeToken } from 'redux/actions/actions';
 import { useDispatch } from 'react-redux';
-import { User } from './UserMenu.styled';
 import {
+  User,
   LogOutButton,
   Profile,
   Menu,
