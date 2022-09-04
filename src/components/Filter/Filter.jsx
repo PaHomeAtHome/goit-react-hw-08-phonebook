@@ -1,9 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from 'redux/actions/actions';
 import { FormStyled } from 'components/LogInForm/LogInForm.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filter.filter);
 
   return (
     <FormStyled>
@@ -14,6 +15,7 @@ export const Filter = () => {
           type="text"
           placeholder="Name"
           onChange={e => dispatch(changeFilter(e.target.value))}
+          value={filter}
         />
       </FormStyled.Group>
     </FormStyled>

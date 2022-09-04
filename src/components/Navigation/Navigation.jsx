@@ -64,13 +64,11 @@ export const Navigation = ({ token, user }) => {
           </NavStyled>
         )}
       </Header>
-
-      <Output>
-        <Suspense
-          fallback={<Spinner animation="border" variant="primary" />}
-        ></Suspense>
-        <Outlet />
-      </Output>
+      <Suspense fallback={<Spinner animation="border" variant="primary" />}>
+        <Output>
+          <Outlet />
+        </Output>
+      </Suspense>
     </>
   );
 };

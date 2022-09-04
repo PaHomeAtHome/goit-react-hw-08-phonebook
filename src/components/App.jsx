@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 
@@ -7,7 +6,7 @@ import { SignUpForm } from './SignUpForm/SignUpForm';
 import { LogInForm } from './LogInForm/LogInForm';
 import { Contacts } from 'pages/Contacts/Contacts';
 import { Home } from 'pages/Home/Home';
-const Container = lazy(() => import('./Container/Container'));
+import Container from './Container/Container';
 
 export function App() {
   const token = useSelector(state => state.token.token);

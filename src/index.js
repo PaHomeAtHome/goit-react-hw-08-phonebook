@@ -6,14 +6,17 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import './index.css';
 import { contactsApi } from 'redux/API/api';
-import { store } from './redux/store';
+import { store, persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/goit-react-hw-08-phonebook/">
       <ApiProvider api={contactsApi}>
         <Provider store={store}>
-          <App />
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
         </Provider>
       </ApiProvider>
     </BrowserRouter>
